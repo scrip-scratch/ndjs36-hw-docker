@@ -1,0 +1,92 @@
+1. `docker pull busybox`
+
+Using default tag: latest
+latest: Pulling from library/busybox
+213a27df5921: Pull complete
+Digest: sha256:9ae97d36d26566ff84e8893c64a6dc4fe8ca6d1144bf5b87b2b85a32def253c7
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+
+2. `docker run --name pinger busybox ping -c 7 netology.com`
+
+PING netology.com (15.197.148.33): 56 data bytes
+64 bytes from 15.197.148.33: seq=0 ttl=63 time=103.661 ms
+64 bytes from 15.197.148.33: seq=1 ttl=63 time=101.453 ms
+64 bytes from 15.197.148.33: seq=2 ttl=63 time=99.954 ms
+64 bytes from 15.197.148.33: seq=3 ttl=63 time=114.523 ms
+64 bytes from 15.197.148.33: seq=4 ttl=63 time=100.202 ms
+64 bytes from 15.197.148.33: seq=5 ttl=63 time=99.823 ms
+64 bytes from 15.197.148.33: seq=6 ttl=63 time=99.910 ms
+
+--- netology.com ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 99.823/102.789/114.523 ms
+
+3. `docker ps -a`
+
+| CONTAINER ID | IMAGE   | COMMAND                | CREATED        | STATUS                    | PORT | NAMES  |
+| ------------ | ------- | ---------------------- | -------------- | ------------------------- | ---- | ------ |
+| 743e9c3dbf01 | busybox | "ping -c 7 netology.…" | 43 seconds ago | Exited (0) 36 seconds ago |      | pinger |
+
+4. `docker logs pinger`
+
+PING netology.com (15.197.148.33): 56 data bytes
+64 bytes from 15.197.148.33: seq=0 ttl=63 time=103.661 ms
+64 bytes from 15.197.148.33: seq=1 ttl=63 time=101.453 ms
+64 bytes from 15.197.148.33: seq=2 ttl=63 time=99.954 ms
+64 bytes from 15.197.148.33: seq=3 ttl=63 time=114.523 ms
+64 bytes from 15.197.148.33: seq=4 ttl=63 time=100.202 ms
+64 bytes from 15.197.148.33: seq=5 ttl=63 time=99.823 ms
+64 bytes from 15.197.148.33: seq=6 ttl=63 time=99.910 ms
+
+--- netology.com ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 99.823/102.789/114.523 ms
+
+5. `docker start pinger`
+
+pinger
+
+6. `docker ps -a`
+
+| CONTAINER ID | IMAGE   | COMMAND                | CREATED   | STATUS                    | PORT | NAMES  |
+| ------------ | ------- | ---------------------- | --------- | ------------------------- | ---- | ------ |
+| 743e9c3dbf01 | busybox | "ping -c 7 netology.…" | 6 minutes | Exited (0) 10 seconds ago |      | pinger |
+
+7. `docker logs pinger`
+
+PING netology.com (15.197.148.33): 56 data bytes
+64 bytes from 15.197.148.33: seq=0 ttl=63 time=103.661 ms
+64 bytes from 15.197.148.33: seq=1 ttl=63 time=101.453 ms
+64 bytes from 15.197.148.33: seq=2 ttl=63 time=99.954 ms
+64 bytes from 15.197.148.33: seq=3 ttl=63 time=114.523 ms
+64 bytes from 15.197.148.33: seq=4 ttl=63 time=100.202 ms
+64 bytes from 15.197.148.33: seq=5 ttl=63 time=99.823 ms
+64 bytes from 15.197.148.33: seq=6 ttl=63 time=99.910 ms
+
+--- netology.com ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 99.823/102.789/114.523 ms
+PING netology.com (15.197.148.33): 56 data bytes
+64 bytes from 15.197.148.33: seq=0 ttl=63 time=105.595 ms
+64 bytes from 15.197.148.33: seq=1 ttl=63 time=101.281 ms
+64 bytes from 15.197.148.33: seq=2 ttl=63 time=99.592 ms
+64 bytes from 15.197.148.33: seq=3 ttl=63 time=105.938 ms
+64 bytes from 15.197.148.33: seq=4 ttl=63 time=99.984 ms
+64 bytes from 15.197.148.33: seq=5 ttl=63 time=99.666 ms
+64 bytes from 15.197.148.33: seq=6 ttl=63 time=99.697 ms
+
+--- netology.com ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 99.592/101.679/105.938 ms
+
+9. `docker rm pinger`
+
+pinger
+
+10. `docker rmi busybox`
+
+Untagged: busybox:latest
+Untagged: busybox@sha256:9ae97d36d26566ff84e8893c64a6dc4fe8ca6d1144bf5b87b2b85a32def253c7
+Deleted: sha256:3fba0c87fcc8ba126bf99e4ee205b43c91ffc6b15bb052315312e71bc6296551
+Deleted: sha256:8e13bc96641a6983e79c9569873afe5800b0efb3993c3302763b9f5bc5fb8739

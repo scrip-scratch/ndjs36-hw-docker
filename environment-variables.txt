@@ -1,0 +1,14 @@
+1. `docker run --name mynode --env NAME=scrip --env SURNAME=scratch -i -t node:15.14`
+
+Welcome to Node.js v15.14.0.
+Type ".help" for more information.
+
+2. `console.log(`Привет, ${process.env.NAME} ${process.env.SURNAME}!`)`
+
+Привет, scrip scratch!
+
+3. Ctrl+C Ctrl+C
+
+4. `docker rm mynode`
+
+mynode
